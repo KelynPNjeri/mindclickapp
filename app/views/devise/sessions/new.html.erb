@@ -10,8 +10,8 @@
     </div>
 
     <div class="mb-4">
-      <%= f.label :password_confirmation, 'Confirmar Contraseña', class: 'block text-gray-600 md:text-4xl lg:text-2xl font-bold mb-0 px-1' %><br />
-      <%= f.password_field :password_confirmation, class:"border-2 border-blue-400 rounded-lg w-full lg:py-2 md:py-6 md:text-4xl lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu contraseña' %>
+      <%= f.label :password, 'Confirmar Contraseña', class: 'block text-gray-600 md:text-4xl lg:text-2xl font-bold mb-0 px-1' %><br />
+      <%= f.password_field :password, class:"border-2 border-blue-400 rounded-lg w-full lg:py-2 md:py-6 md:text-4xl lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu contraseña' %>
     </div>
 
     <% if devise_mapping.rememberable? %>
