@@ -1,25 +1,30 @@
-<h2>Change your password</h2>
+<main class="md:w-10/12 lg:w-4/12 bg-white shadow-2xl rounded px-8 pt-8 pb-8 mb-4 mt-6 mx-auto">
+  <%= image_tag 'LOGO-MINDCLICK-03.png', class: 'md:w-4/12 lg:w-3/12 my-5 mx-auto' %>
+  <h2 class='md:text-6xl lg:text-4xl text-center text-blue-600 my-5'>Cambiar mi contraseña</h2>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="mb-4">
+      <%= f.label :password, 'Contraseña', class: 'block text-gray-600 md:text-4xl lg:text-2xl font-bold mb-0 px-1' %>
+      <% if @minimum_password_length %>
+      <em class='lg:text-xl md:text-2xl'>(<%= @minimum_password_length %> caracteres mínimos)</em>
+      <% end %><br />
+      <%= f.password_field :password, class:"border-2 border-blue-400 rounded-lg w-full lg:py-2 md:py-6 md:text-4xl lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu contraseña' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+    <div class="mb-4">
+      <%= f.label :password_confirmation, 'Confirmar Contraseña', class: 'block text-gray-600 md:text-4xl lg:text-2xl font-bold mb-0 px-1' %><br />
+      <%= f.password_field :password_confirmation, class:"border-2 border-blue-400 rounded-lg w-full lg:py-2 md:py-6 md:text-4xl lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu contraseña' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="w-full py-6">
+      <%= f.submit "Cambiar mi contraseña", class: "bg-blue-500 hover:bg-blue-700 text-white md:text-4xl lg:text-2xl md:p-4 lg:p-3 rounded-lg focus:outline-none focus:shadow-outline" %>
+    </div>
+    <%= render "devise/shared/links"%>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <p class="text-left text-gray-500 md:text-2xl lg:text-lg my-6">
+    &copy;2020 Mind Click. Todos los derechos reservados.
+  </p>
+</main>
