@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Gravtastic
-  gravtastic
+  gravtastic :default => "monsterid"
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:google_oauth2]

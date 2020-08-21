@@ -1,22 +1,22 @@
-<main class="md:w-10/12 lg:w-4/12 bg-white shadow-2xl rounded px-8 pt-8 pb-8 mb-4 mt-6 mx-auto">
-  <%= image_tag 'LOGO-MINDCLICK-03.png', class: 'md:w-4/12 lg:w-3/12 my-5 mx-auto' %>
-  <h2 class='md:text-6xl lg:text-4xl text-center text-blue-600 my-5'>Crear contraseña nueva</h2>
+<main class="lg:w-4/12 w-10/12 bg-white shadow-2xl rounded px-6 pt-8 mb-4 mt-4 mx-auto">
+  <%= image_tag 'LOGO-MINDCLICK-03.png', class: 'w-6/12 my-5 mx-auto' %>
+  <h2 class='lg:text-4xl text-center text-blue-600 my-5'>Crear contraseña nueva</h2>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-4">
-      <%= f.label :email, 'Correo', class: 'block text-gray-600 md:text-4xl lg:text-2xl font-bold mb-0 px-1' %><br />
-      <%= f.email_field :email, class:"border-2 border-blue-400 rounded-lg w-full lg:py-2 md:py-6 md:text-4xl lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu correo' %>
+      <%= f.label :email, 'Correo', class: 'block text-gray-600 lg:text-2xl font-bold mb-0 px-1' %><br />
+      <%= f.email_field :email, class:"border-2 border-blue-400 rounded-lg w-full py-2 lg:text-2xl px-1 text-gray-800 leading-tight focus:outline-none focus:shadow-outline", placeholder: 'Escribe tu correo' %>
     </div>
 
 
-    <div class="w-full py-6">
-      <%= f.submit "Enviarme las instrucciones a mi correo", class: "bg-blue-500 hover:bg-blue-700 text-white md:text-4xl lg:text-2xl md:p-4 lg:p-3 rounded-lg focus:outline-none focus:shadow-outline" %>
+    <div class="w-full mb-1">
+      <%= f.submit "Enviarme instrucciones", class: "bg-blue-500 hover:bg-blue-700 text-white lg:text-2xl p-2 rounded-lg focus:outline-none focus:shadow-outline" %>
     </div>
     <%= render "devise/shared/links"%>
   <% end %>
 
-  <p class="text-left text-gray-500 md:text-2xl lg:text-lg my-6">
+  <p class="text-left text-gray-500 lg:text-lg my-6">
     &copy;2020 Mind Click. Todos los derechos reservados.
   </p>
 </main>

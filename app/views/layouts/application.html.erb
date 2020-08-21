@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mindclickapp</title>
+    <title>Mind Click</title>
+    <%= favicon_link_tag 'LOGO-MINDCLICK-03.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://kit.fontawesome.com/4c68ce4f85.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
-  <body>
-    <%= notice %>
-    <%= alert %>
-    <%= yield %>
+  <body class = 'flex h-screen bg-gray-100 font-sans'>
+    
+    <% if user_signed_in? %>
+      <!-- Side bar-->
+      <div id="sidebar" class="h-screen menu bg-white w-16 text-white px-2 flex flex-col justify-center items-center static shadow-xl">
+          <%= image_tag 'LOGO-MINDCLICK-03-nombre.png', class: 'mb-6 w-10/12 self-center' %>
+          <%= image_tag current_user.gravatar_url, class: 'rounded-full flex items-center w-16 justify-center self-center' %><br>
+          <p class="w-full hidden text-gray-600 text-center"><%= current_user.first_name %></p>
+          <ul class="list-reset mt-8">              
+              <li class="my-2 md:my-0">
+                  <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                      <i class="fas fa-home fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Inicio</span>
+                  </a>
+              </li>
+              <li class="my-2 md:my-0 ">
+                  <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                      <i class="fas fa-user fa-fw  mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Perfil</span>
+                  </a>
+              </li>
+              <li class="my-2 md:my-0">
+                  <%= link_to "<i class='fas fa-sign-out-alt fa-fw mr-3'></i><span class='w-full inline-block pb-1 md:pb-0 text-sm'>Salir</span>".html_safe, destroy_user_session_url, method: :delete, class:"block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400" %>
+              </li>
+          </ul>
+
+      </div>
+    <% end %>
+    
+    <div class="flex flex-row flex-wrap flex-1 flex-grow content-start">
+        <%= yield %>
+    </div>
+    
   </body>
 </html>
+
+
