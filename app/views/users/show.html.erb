@@ -1,0 +1,21 @@
+<div class="mx-auto my-12 lg:w-1/5 w-2/5">
+  <%= image_tag @user.gravatar_url, class: 'shadow-xl rounded-full items-center w-full mx-auto' %>
+</div>
+
+<h1 class='text-center text-gray-800 text-xl lg:text-3xl'><%= @user.first_name %> <%= @user.last_name %></h1>
+<%= cta_therapist(@user) %>
+
+<div class="main-content p-4 lg:h-screen">
+  <div class="flex-1 text-center lg:text-justify bg-white p-4 shadow">
+    <p><%= @user.description %></p>
+
+    <h5>Cómo es una sesión conmigo?</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ratione dignissimos quis praesentium, ipsam repudiandae sunt, aperiam sint a unde asperiores, aliquid explicabo culpa! Labore asperiores blanditiis quaerat enim illo!</p>
+    <%= cta_therapist(@user) %>
+  </div>
+
+  <div class="flex-1 text-center lg:text-justify bg-white p-4 shadow">
+    
+  </div>
+
+</div>

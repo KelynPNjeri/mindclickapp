@@ -1,0 +1,9 @@
+.users {
+  .main-content {
+    @apply flex flex-wrap;
+  }
+
+  .main-information {
+    @apply order-1;
+  }
+}

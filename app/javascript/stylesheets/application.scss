@@ -6,6 +6,7 @@
 /*! purgecss end ignore */
 
 @import "tailwindcss/utilities";
+@import 'user';
 
 
 .nunito {
@@ -57,4 +58,16 @@ hover\:border-none:hover {
 
 #sidebar:hover span {
   opacity: 1;
+}
+
+@keyframes message-hightlight {
+  0% {
+  }
+  100% {
+    display: none !important;
+  }
+}
+
+.notice-hightlight {
+  animation: message-hightlight 10s;
 }
